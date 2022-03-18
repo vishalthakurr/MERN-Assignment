@@ -8,7 +8,7 @@ const UserState = (props) => {
   
 
 
-  const [user, setuser] = useState('')
+  const [user, setuser] = useState([])
 
    // //////// get all note
    const getuser = async  () => {
@@ -25,7 +25,7 @@ const UserState = (props) => {
   
       });
       const json = await response.json();
-      // console.log(json);
+      // console.log([json]);
 
       setuser(json)
 

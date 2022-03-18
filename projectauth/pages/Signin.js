@@ -36,7 +36,7 @@ const Signin = () => {
             localStorage.setItem('token', json.jwttoken)
 
             setdata({ email: "", password: "", })
-            router.push("/",json)
+            router.push("/")
             alert("Sucessfully login", "success")
 
 
