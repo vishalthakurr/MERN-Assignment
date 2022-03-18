@@ -1,9 +1,11 @@
 import React, { useState } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"; // Import the FontAwesomeIcon component
+import { faEyeSlash, faEye } from "@fortawesome/free-solid-svg-icons"; // import the icons you need
+
 
 const Signin = () => {
-
 
 
     const [data, setdata] = useState({ email: "", password: "", });
@@ -59,8 +61,31 @@ const Signin = () => {
 
         setdata({ ...data, [e.target.name]: e.target.value })
 
+    }
+
+    const [eye, setEye] = useState(faEyeSlash);
+
+    const eyehandel = () => {
+
+        const Tin = document.querySelector("#showhide")
+        if (Tin.getAttribute('type') === 'password') {
+
+            Tin.setAttribute('type', 'Text');
+            setEye(faEye)
+        }
+        else {
+            Tin.setAttribute('type', 'password');
+            setEye(faEyeSlash)
+
+        }
+
 
     }
+
+
+
+
+
     return (
 
         <div className="bg-gray-100 h-[90vh]  ">
@@ -68,21 +93,27 @@ const Signin = () => {
 
                 <div className="right flex flex-col bg-white px-8 py-2 rounded-md  md:w-2/6 shadow-2xl text-md relative" >
 
+                    <form  onSubmit={Createlogin}  method="POST">
 
 
 
-                    <input className="px-5 h-12 my-2 rounded-md border-2 border-x-gray-300 outline-blue-600" type="text" placeholder="Email address or Phone Number" name='email' id='email' value={data.name} onChange={handleclick} required />
+                        <input className="px-5 w-full h-12 my-2 rounded-md border-2 border-x-gray-300 outline-blue-600" type="text" placeholder="Email address or Phone Number" name='email' id='email' value={data.name} onChange={handleclick} required />
 
-                    <input className="px-5 h-12 my-2 rounded-md border-2 border-x-gray-300 outline-blue-600" type="password" placeholder="Password" name='password' id='password' value={data.password} onChange={handleclick} required />
 
-                    <button type='submit' onClick={Createlogin} className=" my-3 bg-blue-600 text-white  font-bold rounded-md p-3 hover:bg-blue-700">Sign In</button>
+                        <div className=' flex flex-row'>
+                            <input id="showhide" className=" w-full  relative px-5 h-12 my-2 rounded-md border-2 border-x-gray-300 outline-blue-600" type="password" placeholder="Password" name='password' minLength={5} value={data.password} onChange={handleclick} required />
+                            <FontAwesomeIcon onClick={eyehandel} id='eyet' className=' font-medium cursor-pointer absolute right-[40px] top-[97px] ' icon={eye}></FontAwesomeIcon>
+                        </div>
 
-                    {/* <Link href="/forgetPassword">
+                        <button type='submit'  className=" mx-40  my-3 bg-blue-600 text-white  font-bold rounded-md p-3 hover:bg-blue-700">Sign In</button>
+
+                        {/* <Link href="/forgetPassword">
                         <span className=" my-2 text-blue-600 text-center text-sm cursor-pointer hover:underline">
 
                             Forgotten password?
                         </span>
                     </Link> */}
+                    </form>
                     <hr className="my-3 border-gray-400" />
 
                     <Link href="/Signup">

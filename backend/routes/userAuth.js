@@ -22,7 +22,7 @@ router.post('/userSignup',
         let sucess = true;
 
         const { name, email, phone, password, cpassword } = req.body;
-        console.log(name, email, phone, password, cpassword);
+        // console.log(name, email, phone, password, cpassword);
 
         //if there are errpr , return bad request and thr error
         const errors = validationResult(req);
@@ -62,7 +62,7 @@ router.post('/userSignup',
                     }
 
                     const jwttoken = jwt.sign(data, jwtsect)
-                    console.log(jwttoken);
+                    // console.log(jwttoken);
 
 
 

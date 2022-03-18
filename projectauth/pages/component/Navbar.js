@@ -161,7 +161,7 @@ const Navbar = () => {
                                 <Link href='/'>  Home</Link></div>
                             <div
                                 className="item cursor-pointer my-5 md:my-0 hover:border-dashed hover:border-2 hover:border-black  p-1   ">
-                                <Link href='/about'> About</Link></div>
+                                <Link href='/About'> About</Link></div>
                             <div
                                 className="item cursor-pointer my-5 md:my-0 hover:border-dashed hover:border-2 hover:border-black  p-1   ">
                                 <Link href='/Blog'> Blog</Link></div>
