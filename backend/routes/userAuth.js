@@ -74,7 +74,9 @@ router.post('/userSignup',
                     return res.status(200).json({ sucess, saveclient, jwttoken })
                 }
                 else {
-                    return res.status(400).send({ error: "  password is not same" })
+
+                    sucess = false;
+                    return res.status(400).send({ sucess,  mes: " password is not same" })
 
 
                 }

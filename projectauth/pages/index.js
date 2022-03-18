@@ -40,8 +40,8 @@ export default function Home(props) {
       </Head>
 
       <main className={styles.main}>
-        <h1 className="text-3xl font-bold  ">
-          Welcome to the Mern Project  <span className='text-4xl text-purple-500'> { user.name}</span>
+        <h1 className="text-3xl font-bold  flex justify-center items-center h-screen  ">
+          Welcome to the Mern Project  <span className='text-4xl text-purple-500 mx-5'> { user.name}</span>
         </h1>
       </main>
 

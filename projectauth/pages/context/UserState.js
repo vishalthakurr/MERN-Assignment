@@ -5,30 +5,45 @@ import { useState } from "react";
 
 const UserState = (props) => {
 
-  
+
 
 
   const [user, setuser] = useState([])
 
-   // //////// get all note
-   const getuser = async  () => {
+  // //////// get all note
+  const getuser = async () => {
 
-       //api call
-       const response = await fetch(`http://localhost:5000/api/getuser`, {
+    //api call
+    const response = await fetch(`http://localhost:5000/api/getuser`, {
 
-        method: 'post',
-        headers: {
-          'Content-Type': 'application/json',
-          'auth-token': localStorage.getItem('token')
-  
-        },
-  
-      });
-      const json = await response.json();
-      // console.log([json]);
+      method: 'post',
+      headers: {
+        'Content-Type': 'application/json',
+        'auth-token': localStorage.getItem('token')
 
-      setuser(json)
+      },
 
+    });
+    const json = await response.json();
+    // console.log([json]);
+
+    setuser(json)
+
+
+  }
+
+  // alert
+  const [Aler, setAler] = useState({})
+  const showalert = (meassage, type) => {
+
+    setAler({
+      msg: meassage,
+      type: type
+    })
+
+    setTimeout(() => {
+      setAler(null);
+    }, 2000);
 
   }
 
@@ -37,7 +52,7 @@ const UserState = (props) => {
   return (
 
 
-    <UserContext.Provider value={{user ,getuser}} >
+    <UserContext.Provider value={{ user, getuser, Aler ,showalert }} >
       {props.children}
     </UserContext.Provider>
   )

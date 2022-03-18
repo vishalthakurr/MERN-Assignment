@@ -6,17 +6,18 @@ config.autoAddCss = false; // Tell Font Awesome to skip adding the CSS automatic
 import Fotter from './component/Fotter'
 import Navbar from './component/Navbar'
 import UserState from './context/UserState'
+import Alert from './component/Alert';
 
 function MyApp({ Component, pageProps }) {
   return <>
 
-    <Navbar />
-
     <UserState>
+      <Navbar />
+
 
       <Component {...pageProps} />
+      <Fotter />
     </UserState>
-    <Fotter />
 
   </>
 }

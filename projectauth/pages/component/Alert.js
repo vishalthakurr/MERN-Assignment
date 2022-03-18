@@ -1,0 +1,61 @@
+import React from 'react'
+import { useContext, useEffect } from 'react';
+import UserContext from '../context/UserContext';
+import { useRouter } from 'next/router'
+
+
+
+
+const Alert = (props) => {
+    // const router = useRouter()
+
+    const context = useContext(UserContext);
+
+    const { Aler } = context;
+
+    // console.log(Aler);
+
+    // useEffect(() => {
+
+    //     if (Aler) {
+    //         showalert(" created", "info");
+    //     }
+    //     else {
+    //         router.push("/Signin")
+    //     }
+    //     // eslint-disable-next-line 
+    // }, [])
+
+
+
+    const capt = (word) => {
+
+        let c = word.toLowerCase();
+        return c.charAt(0).toUpperCase() + c.slice(1)
+
+    }
+
+    return (
+
+        <div>
+            {
+                (Aler && (Aler.type == 'success')) ?
+
+                    <div className="border border-green-400 bg-green-300 text-green-900 p-2"  >{capt(Aler.type)} : {Aler.msg} </div>
+                    : (Aler && (Aler.type == 'danger')) ?
+                        <div className="border border-red-400 bg-red-300 text-red-900 p-2"  >{capt(Aler.type)}
+                            : {Aler.msg} </div>
+                        : (Aler && (Aler.type == 'warning')) ? <div className="border border-yellow-400 bg-yellow-300 text-yellow-900 p-2"  >{capt(Aler.type)}
+                            : {Aler.msg} </div>
+                             :(Aler && (Aler.type == 'info'))?<div className="border border-blue-400 bg-blue-300 text-blue-900 p-2"  >{capt(Aler.type)}
+                            : {Aler.msg} </div> :null
+            }
+
+
+        </div>
+
+
+    )
+}
+
+export default Alert

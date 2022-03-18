@@ -4,8 +4,30 @@ import { useRouter } from 'next/router'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"; // Import the FontAwesomeIcon component
 import { faEyeSlash, faEye } from "@fortawesome/free-solid-svg-icons"; // import the icons you need
 
+import { useContext } from 'react';
+import UserContext from './context/UserContext';
+
+
 
 const Signin = () => {
+   
+
+
+    const context = useContext(UserContext);
+    const { showalert  } = context;
+    
+    // console.log(Aler);
+
+    // useEffect(() => {
+
+    //     if (Aler) {
+    //         showalert(" created", "info");
+    //     }
+    //     else {
+    //         router.push("/Signin")
+    //     }
+    //     // eslint-disable-next-line 
+    // }, [])
 
 
     const [data, setdata] = useState({ email: "", password: "", });
@@ -39,17 +61,18 @@ const Signin = () => {
 
             setdata({ email: "", password: "", })
             router.push("/")
-            alert("Sucessfully login", "success")
+            showalert(" Sucessfully login", "success");
+            // alert("Sucessfully login", "success")
 
 
         }
         else if (json.sucess === false || json.error === "please try to login with  correct  credentials") {
-            alert("please try to login with  correct  credentials", "danger")
+            showalert("please try to login with  correct  credentials", "danger")
 
         }
 
         else {
-            alert("Invalid credential", "danger")
+            showalert("Invalid credential", "danger")
         }
 
 

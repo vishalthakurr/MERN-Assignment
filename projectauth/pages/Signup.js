@@ -3,12 +3,16 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"; // Import the FontAwesomeIcon component
 import { faEyeSlash, faEye } from "@fortawesome/free-solid-svg-icons"; // import the icons you need
+import UserContext from './context/UserContext';
+import { useContext } from 'react';
 
 
 
 
 
 const Signup = () => {
+    const context = useContext(UserContext);
+    const { showalert  } = context;
 
     const [data, setdata] = useState({ name: "", email: "", phone: "", password: "", cpassword: "" });
 
@@ -39,7 +43,7 @@ const Signup = () => {
 
         if (json.sucess) {
 
-            alert("Sucessfully Account Created", "success")
+            showalert("Sucessfully Account Created", "success")
             //save the authtoken and redirect
             localStorage.setItem('token', json.jwttoken)
             setdata({ name: "", email: "", phone: "", password: "", cpassword: "" })
@@ -47,16 +51,16 @@ const Signup = () => {
 
 
         }
-        else if (json.sucess === false || json.err === "you have already contact") {
-            alert("you have already contact", "warning")
+        else if (json.sucess === false && json.err === "you have already register") {
+            showalert("you have already register", "warning")
 
         }
-        else if (json.sucess === false || json.error === "  password is not same") {
-            alert(" password is not same", "warning")
+        else if (json.sucess === false && json.mes === " password is not same") {
+            showalert("password is not Same", "danger")
 
         }
         else {
-            alert("please fill all the field", "danger")
+            showalert("please fill all the field", "danger")
         }
 
 

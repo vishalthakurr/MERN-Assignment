@@ -1,8 +1,16 @@
 import React, { useState } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
+import Alert from './Alert';
+import UserContext from '../context/UserContext';
+import { useContext } from 'react';
+
+
 
 const Navbar = () => {
+
+    const context = useContext(UserContext);
+    const { showalert  } = context;
 
 
 
@@ -41,6 +49,8 @@ const Navbar = () => {
     const userlogout = () => {
 
         localStorage.removeItem('token')
+        showalert(" Sucessfully Logout", "info");
+
         router.push('/Signin')
     }
 
@@ -173,7 +183,9 @@ const Navbar = () => {
                         </div>
                     </div>
                 </div>
+                <Alert   />
             </div>
+
 
         </>
     )
