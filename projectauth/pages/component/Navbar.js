@@ -10,7 +10,7 @@ import { useContext } from 'react';
 const Navbar = () => {
 
     const context = useContext(UserContext);
-    const { showalert  } = context;
+    const { showalert } = context;
 
 
 
@@ -126,6 +126,7 @@ const Navbar = () => {
                                     <Link href='/Contact'>  Contact Us</Link></div>
 
 
+
                             </div>
                         </div>
 
@@ -180,10 +181,11 @@ const Navbar = () => {
                                 <Link href='/Contact'>  Contact US</Link></div>
 
 
+
                         </div>
                     </div>
                 </div>
-                <Alert   />
+                <Alert />
             </div>
 
 

@@ -37,20 +37,24 @@ router.post('/userSignup',
 
             if (client) {
                 sucess = false;
-                return res.status(400).json({ sucess, err: "you have already contact " })
+                return res.status(400).json({ sucess, err: "you have already register" })
             }
             else {
 
                 //password stored to hash
 
+
+
                 if (password === cpassword) {
+
+               
 
                     const salt = await bcrypt.genSalt(10);
                     const securepass = await bcrypt.hash(password, salt);
 
 
 
-                    user = await UserData.create({
+                    const user = await UserData.create({
 
                         name, email, phone, password: securepass
                     })
@@ -76,7 +80,7 @@ router.post('/userSignup',
                 else {
 
                     sucess = false;
-                    return res.status(400).send({ sucess,  mes: " password is not same" })
+                    return res.status(400).send({ sucess, mes: " password is not same" })
 
 
                 }
@@ -153,8 +157,8 @@ router.post('/getuser', fetchuser, async (req, res) => {
     try {
 
         const id = req.data.id;
-        // console.log(id);
-        const user = await UserData.findById(id).select("-password")
+        // const user = await UserData.findById(id).select("-password")
+        const user = await UserData.findById(id)
         res.status(200).send(user)
 
     } catch (e) {
@@ -163,6 +167,7 @@ router.post('/getuser', fetchuser, async (req, res) => {
     }
 }
 )
+
 
 
 

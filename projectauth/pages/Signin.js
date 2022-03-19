@@ -10,12 +10,12 @@ import UserContext from './context/UserContext';
 
 
 const Signin = () => {
-   
+
 
 
     const context = useContext(UserContext);
-    const { showalert  } = context;
-    
+    const { showalert } = context;
+
     // console.log(Aler);
 
     // useEffect(() => {
@@ -67,7 +67,7 @@ const Signin = () => {
 
         }
         else if (json.sucess === false || json.error === "please try to login with  correct  credentials") {
-            showalert("please try to login with  correct  credentials", "danger")
+            showalert("please try to login with  correct  credentials", "warning")
 
         }
 
@@ -116,7 +116,7 @@ const Signin = () => {
 
                 <div className="right flex flex-col bg-white px-8 py-2 rounded-md  md:w-2/6 shadow-2xl text-md relative" >
 
-                    <form  onSubmit={Createlogin}  method="POST">
+                    <form onSubmit={Createlogin} method="POST">
 
 
 
@@ -128,7 +128,7 @@ const Signin = () => {
                             <FontAwesomeIcon onClick={eyehandel} id='eyet' className=' font-medium cursor-pointer absolute right-[40px] top-[97px] ' icon={eye}></FontAwesomeIcon>
                         </div>
 
-                        <button type='submit'  className=" mx-40  my-3 bg-blue-600 text-white  font-bold rounded-md p-3 hover:bg-blue-700">Sign In</button>
+                        <button type='submit' className=" mx-40  my-3 bg-blue-600 text-white  font-bold rounded-md p-3 hover:bg-blue-700">Sign In</button>
 
                         {/* <Link href="/forgetPassword">
                         <span className=" my-2 text-blue-600 text-center text-sm cursor-pointer hover:underline">

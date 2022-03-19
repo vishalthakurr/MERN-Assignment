@@ -52,11 +52,11 @@ const Signup = () => {
 
         }
         else if (json.sucess === false && json.err === "you have already register") {
-            showalert("you have already register", "warning")
+            showalert("You  Have Already Register", "danger")
 
         }
         else if (json.sucess === false && json.mes === " password is not same") {
-            showalert("password is not Same", "danger")
+            showalert("Password is Not Same", "warning")
 
         }
         else {

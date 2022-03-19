@@ -10,7 +10,7 @@ const UserState = (props) => {
 
   const [user, setuser] = useState([])
 
-  // //////// get all note
+  // //////// get user
   const getuser = async () => {
 
     //api call
@@ -46,6 +46,34 @@ const UserState = (props) => {
     }, 2000);
 
   }
+
+
+  
+
+
+  // //////// info
+
+  // const [userinfo, setuserinfo] = useState([]);
+  // const info = async () => {
+
+  //   //api call
+  //   const response = await fetch(`http://localhost:5000/api/userinfo`, {
+
+  //     method: 'post',
+  //     headers: {
+  //       'Content-Type': 'application/json',
+  //       'auth-token': localStorage.getItem('token')
+
+  //     },
+
+  //   });
+  //   const json = await response.json();
+  //   // console.log([json]);
+
+  //   setuserinfo(json)
+
+
+  // }
 
 
 
