@@ -23,6 +23,6 @@ app.get('/', (req, res) => {
 
 
 app.listen(port, () => {
-  console.log(` Authenticate  backend listening at http://localhost:${port}`)
+  console.log(` Authenticate  backend listening `)
 })
 

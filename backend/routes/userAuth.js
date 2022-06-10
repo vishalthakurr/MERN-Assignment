@@ -19,7 +19,6 @@ router.post('/userSignup',
         let sucess = true;
 
         const { name, email, phone, password, cpassword } = req.body;
-        // console.log(name, email, phone, password, cpassword);
 
         //if there are errpr , return bad request and thr error
         const errors = validationResult(req);
@@ -30,7 +29,6 @@ router.post('/userSignup',
         try {
 
             let client = await UserData.findOne({ email: email })
-            // console.log(client)
 
             if (client) {
                 sucess = false;
@@ -63,7 +61,6 @@ router.post('/userSignup',
                     }
 
                     const jwttoken = jwt.sign(data, jwtsect)
-                    // console.log(jwttoken);
 
 
 
@@ -132,7 +129,6 @@ router.post('/userSignin', [
             }
         }
         const jwttoken = jwt.sign(data, jwtsect)
-        console.log(jwttoken);
 
         success = true
 
@@ -140,7 +136,6 @@ router.post('/userSignin', [
     }
 
     catch (e) {
-        console.log(e);
         res.status(500).send("somenting went wrong user not login ");
     }
 })
@@ -159,7 +154,6 @@ router.post('/getuser', fetchuser, async (req, res) => {
         res.status(200).send(user)
 
     } catch (e) {
-        console.log(e);
         res.status(500).send("Interval server error ");
     }
 }
