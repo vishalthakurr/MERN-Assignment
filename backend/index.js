@@ -1,9 +1,10 @@
+require("dotenv").config()
 require("../backend/connDB/db");
 const express = require('express')
 
 const cors = require('cors');
 const app = express()
-const port = process.env.PORT || 5000
+const port = process.env.PORT
 
 app.use(cors());
 

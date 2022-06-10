@@ -1,5 +1,7 @@
+require("dotenv").config()
+
 const mongoose = require("mongoose");
-const mongoUri ="mongodb://localhost:27017/projectAuth";
+const mongoUri =process.env.CONNECT;
 
 mongoose.connect(mongoUri,{
     // useCreateIndex: true,

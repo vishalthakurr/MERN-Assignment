@@ -1,3 +1,4 @@
+require("dotenv").config()
 const express = require("express");
 const router = express.Router()
 const bcrypt = require('bcrypt')
@@ -6,11 +7,7 @@ const jwt = require("jsonwebtoken");
 const { body, validationResult } = require('express-validator');
 const fetchuser = require("../middleware/userfetch")
 
-
-
-
-
-const jwtsect = "vishalthakur1742000"
+const jwtsect = process.env.SKEY
 router.post('/userSignup',
     [
         body('email', "enter a valid email").isEmail(),

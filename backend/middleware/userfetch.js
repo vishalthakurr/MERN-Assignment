@@ -1,6 +1,8 @@
+require("dotenv").config()
+
 const jwt = require("jsonwebtoken");
 
-jwtsect = "vishalthakur1742000"
+jwtsect = process.env.SKEY
 
 const fetchuser = (req, res, next) => {
     //get the user from  the jwt token and id to req object 
@@ -29,5 +31,5 @@ const fetchuser = (req, res, next) => {
 
 
 
-    module.exports = fetchuser;
+module.exports = fetchuser;
 
