@@ -1,7 +1,7 @@
 require("dotenv").config()
 
 const mongoose = require("mongoose");
-const mongoUri =process.env.CONNECT;
+const mongoUri ="mongodb+srv://Vishal:VishalThakur@cluster1.oiwus.mongodb.net/MernStack?retryWrites=true&w=majority"
 
 mongoose.connect(mongoUri,{
     // useCreateIndex: true,
